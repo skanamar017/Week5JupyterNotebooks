@@ -8,10 +8,11 @@ headers = {"token": "YNdSNAKuShEffldROWvMFiYgGZpcaSsL"}
 params = {
     "limit": 1000,
     "offset": 1,
-    "datasetid": "GHCND",
+    "datasetid": "GSOM",
     "locationid": "FIPS:10003",
-    "startdate": "2018-01-01",
-    "enddate": "2018-01-31"
+    "startdate": "1938-01-01",
+    "enddate": "1947-12-31",
+    "datatypeid": "TAVG"
 }
 
 os.makedirs("data/daily_summaries", exist_ok=True)
@@ -24,7 +25,8 @@ if response.status_code == 200:
     total_count = data["metadata"]["resultset"]["count"]
 
     i = 0
-    while i * params["limit"] < total_count:
+    #while i * params["limit"] < total_count:
+    while
         params["offset"] = i * params["limit"] + 1
         sub_response = requests.get(url=url, headers=headers, params=params)
         if sub_response.status_code == 200 and sub_response.content:
